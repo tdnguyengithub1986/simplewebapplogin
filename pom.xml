@@ -5,8 +5,8 @@
   <artifactId>LoginPageUsingSpringMVC</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>LocalWebLogin</name>
   <url>http://maven.apache.org</url>
+  <name>weblogin</name>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -66,4 +66,5 @@
     </pluginManagement>
   </build>
     
+  
 </project>
