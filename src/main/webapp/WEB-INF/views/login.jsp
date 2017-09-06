@@ -2,7 +2,7 @@
 <body>
 	<h2>Please login!</h2>
 	<p><font color="red">${errorMessage}</font></p>
-	<form method= "post" action="/weblogin/login">
+	<form method= "post" action="/login">
 		<table>
 			<tr>
 				<td>User Name</td>
