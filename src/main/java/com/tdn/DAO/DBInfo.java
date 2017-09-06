@@ -9,7 +9,7 @@ public class DBInfo {
 	static String dbName = "tdndb";
 	static int dbPort = 3306;
 	
-	static String dbURL = "jdbc:mysql:" + dbHost + ":" + dbPort +"/" +dbName;
+	static String dbURL = "jdbc:mysql://" + dbHost + ":" + dbPort +"/" +dbName;
 	
 	static String rootUserName = "root";
 	
