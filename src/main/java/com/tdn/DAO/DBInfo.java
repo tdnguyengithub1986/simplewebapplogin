@@ -10,12 +10,12 @@ public class DBInfo {
 	static int dbPort = 3306;
 	
 	static String dbURL = "jdbc:mysql://" + dbHost + ":" + dbPort +"/" +dbName;
-	
+	 
 	static String rootUserName = "root";
 	
 	static String rootPassword = "tdnrootpassword";
 	
-	static String jdbcDriver = "com.msql.jdbc.Driver";
+	static String jdbcDriver = "com.mysql.jdbc.Driver";
 
 	public static String getDbHost() {
 		return dbHost;
