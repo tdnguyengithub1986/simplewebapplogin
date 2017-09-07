@@ -22,7 +22,7 @@ public class LoginController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String showLoginAsHomePage(){
-		return "userList";
+		return "login";
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
