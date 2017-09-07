@@ -17,7 +17,7 @@ public class LoginService {
 		try{
 			Class.forName(DBInfo.getJdbcDriver());
 			Connection dbConnection = DriverManager.getConnection(DBInfo.getDbURL(), DBInfo.getRootUserName(), DBInfo.getRootPassword());
-			PreparedStatement ps = dbConnection.prepareStatement("SELECT * FROM CUSTOMERS WHERE username=? AND password=?");
+			PreparedStatement ps = dbConnection.prepareStatement("SELECT * FROM user WHERE username=? AND password=?");
 			ps.setString(1, userName);
 			ps.setString(2, password);
 			ResultSet rs = ps.executeQuery();
