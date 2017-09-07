@@ -5,7 +5,7 @@ package com.tdn.DAO;
 
 public class DBInfo {
 	
-	static String dbHost = "mysql";
+	static String dbHost = "localhost";
 	static String dbName = "tdndb";
 	static int dbPort = 3306;
 	
