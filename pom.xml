@@ -52,7 +52,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>weblogin</finalName>
+		<finalName>ROOT</finalName>
 
 		<pluginManagement>
 			<plugins>
