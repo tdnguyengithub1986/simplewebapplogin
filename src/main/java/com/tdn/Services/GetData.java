@@ -44,13 +44,7 @@ public class GetData {
 	
 	public String CreateJspTable(){
 		SqlRowSet srs = _jdbcTemplate.queryForRowSet("SELECT * FROM user");
-		String table ="<table border=\"1\" width =\"60%\" style=\"vertical-align:middle\">"
-				+ "<tr>"
-					+ "<td width =\"10%\">ID</td>"
-					+ "<td width =\"30%\">Role</td>"
-					+ "<td width =\"30%\">User Name</td>"
-					+ "<td width =\"30%\">Password</td>"
-				+ "</tr>";
+		String table ="";
 		while(srs.next()){
 			table+= "<tr>"
 				       + "<td>"+srs.getString(1)+"</td>"
@@ -59,7 +53,62 @@ public class GetData {
 				       + "<td>"+srs.getString(4)+"</td>"
 				    +"</tr>";
 		}
-		table+= "</table>";
+		return table;
+	}
+	public String CreateJspTable(String role){
+		String administrator= "administrator";
+		String moderator = "moderator";
+		String mask = "**********";
+		SqlRowSet srs = _jdbcTemplate.queryForRowSet("SELECT * FROM user");
+		String table ="";
+		if(role.equals(administrator)){
+			while(srs.next()){
+				table+= "<tr>"
+					       + "<td>"+srs.getString(1)+"</td>"
+					       + "<td>"+srs.getString(2)+"</td>"
+					       + "<td>"+srs.getString(3)+"</td>"
+					       + "<td>"+srs.getString(4)+"</td>"
+					    +"</tr>";
+			}
+		}else if(role.equals(moderator)){
+			while(srs.next()){
+				if(srs.getString(2).equals(administrator)){
+			
+				table+= "<tr>"
+					       + "<td>"+srs.getString(1)+"</td>"
+					       + "<td>"+srs.getString(2)+"</td>"
+					       + "<td>"+srs.getString(3)+"</td>"
+					       + "<td>"+mask+"</td>"
+					    +"</tr>";
+				}else{
+					table+= "<tr>"
+						       + "<td>"+srs.getString(1)+"</td>"
+						       + "<td>"+srs.getString(2)+"</td>"
+						       + "<td>"+srs.getString(3)+"</td>"
+						       + "<td>"+srs.getString(4)+"</td>"
+						    +"</tr>";
+				}
+			}
+		}else{
+			while(srs.next()){
+				if(srs.getString(2).equals(administrator)||srs.getString(2).equals(moderator)){
+			
+				table+= "<tr>"
+					       + "<td>"+srs.getString(1)+"</td>"
+					       + "<td>"+srs.getString(2)+"</td>"
+					       + "<td>"+srs.getString(3)+"</td>"
+					       + "<td>"+mask+"</td>"
+					    +"</tr>";
+				}else{
+					table+= "<tr>"
+						       + "<td>"+srs.getString(1)+"</td>"
+						       + "<td>"+srs.getString(2)+"</td>"
+						       + "<td>"+srs.getString(3)+"</td>"
+						       + "<td>"+srs.getString(4)+"</td>"
+						    +"</tr>";
+				}
+			}
+		}
 		return table;
 	}
 	

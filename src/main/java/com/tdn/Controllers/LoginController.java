@@ -34,9 +34,10 @@ public class LoginController {
 	public String checkCredential(@RequestParam String userName, 
 								  @RequestParam String password,
 								  ModelMap model){
+		
 		if(checkLogingCredential.springValidate(userName, password)){
-			
-			String table = getData.CreateJspTable();
+			String role = checkLogingCredential.get_loginedUserRole();
+			String table = getData.CreateJspTable(role);
 			model.put("table", table);
 			return "userList";
 		}else{

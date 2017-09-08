@@ -52,11 +52,12 @@ public class LoginService {
 	
 	private DataSource _datasource;
 	private JdbcTemplate _jdbcTemplate;
-
+	private String _loginedUserRole;
 	public boolean springValidate(String userName, String password){
 		String qr = String.format("SELECT * FROM `user` WHERE `username`=\"%s\" AND `password`=\"%s\"", userName, password);
 		SqlRowSet srs = _jdbcTemplate.queryForRowSet(qr);
 		if(srs.next()){
+			_loginedUserRole=srs.getString(2);
 			return true;
 		}
 		return false;
@@ -79,6 +80,10 @@ public class LoginService {
 
 	public void set_jdbcTemplate(JdbcTemplate _jdbcTemplate) {
 		this._jdbcTemplate = _jdbcTemplate;
+	}
+
+	public String get_loginedUserRole() {
+		return _loginedUserRole;
 	}
 	
 	

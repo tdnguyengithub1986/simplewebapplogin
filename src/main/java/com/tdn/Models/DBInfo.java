@@ -1,4 +1,4 @@
-package com.tdn.Models;
+/*package com.tdn.Models;
 
 
 
@@ -6,14 +6,18 @@ package com.tdn.Models;
 public class DBInfo {
 	
 	static String dbHost = "127.0.0.1";
-	static String dbName = "tdndb";
+	static String dbName = System.getenv("OPENSHIFT_APP_NAME");
+
 	static int dbPort = 3306;
 	
-	static String dbURL = "jdbc:mysql://" + dbHost + ":" + dbPort +"/" +dbName;
+	static String dbURL = "jdbc:"+System.getenv("OPENSHIFT_MYSQL_DB_URL")+ dbName;
+
 	 
-	static String rootUserName = "root";
+	static String rootUserName = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
+;
 	
-	static String rootPassword = "tdnrootpassword";
+	static String rootPassword = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
+;
 	
 	static String jdbcDriver = "com.mysql.jdbc.Driver";
 
@@ -47,4 +51,4 @@ public class DBInfo {
 	
 	
 	
-}
+}*/
