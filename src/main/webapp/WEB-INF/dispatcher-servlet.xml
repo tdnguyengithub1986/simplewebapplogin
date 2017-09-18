@@ -11,9 +11,11 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	
-	<context:component-scan base-package="com.tdn.Controllers, com.tdn.Services"/>
+	<context:component-scan base-package="com.tdn"/>
+	<context:annotation-config/>
 	
 	<mvc:annotation-driven/>
+	
 	
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name ="prefix" value = "/WEB-INF/views/"/>
@@ -22,7 +24,7 @@
 	
 	<bean id="dataSource" class ="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name ="driverClassName" value = "com.mysql.jdbc.Driver"/>
-		<property name ="url" value = "jdbc:mysql://mysql:3306/tdndb"/>
+		<property name ="url" value = "jdbc:mysql://localhost:3306/tdndb"/>
 		<property name ="username" value = "root"/>
 		<property name ="password" value = "tdnrootpassword"/>
 	</bean>
